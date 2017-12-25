@@ -182,10 +182,9 @@ body.mobile-menu-active #mobile-menu-button {
 /* HOME */
 #home {
     background: url('../images/main/main01.jpg') no-repeat center center/cover;
-    background-attachment: fixed;
+    
     width: 100%;
-    height: 0;
-    padding-top: 66.5446%;
+    height: 100vh;
 }
 .sec-bg{
     background: linear-gradient(to right bottom, rgba(200, 200, 200, 0.5), rgba(0, 0, 0, 0.8));
