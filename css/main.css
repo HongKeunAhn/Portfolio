@@ -250,10 +250,13 @@ body.mobile-menu-active #mobile-menu-button {
 .section-title h2 {
     margin-bottom: 5px;
 }
+.profile-img{
+    display: inline-block;
+    border-radius: 50px !important;
+}
 .profile {
-    position: relative;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-right: 6%;
+    padding-bottom: 6%;
 }
 @media screen and (max-width:575px){
     .profile{
@@ -263,19 +266,19 @@ body.mobile-menu-active #mobile-menu-button {
 .profile::before, .profile::after{
     content: "";
     position: absolute;
-    bottom: 0px;
-    right: -10px;
+    bottom: -7px;
+    right: 20px;
 }
 .profile::before{
     top: 25px;
-    width: 10px;
-    background: linear-gradient(to top,  #f09458 0%, #e66587 100%);
+    width: 3%;
+    background: linear-gradient(to bottom,  #f09458 0%, #e66587 100%);
     box-shadow: 5px 0px 7px gray;
 }
 .profile::after{
-    left: 25px;
-    height: 10px;
-    background: linear-gradient(to left,  #f09458 0%, #e66587 100%);
+    left: 50px;
+    height: 3%;
+    background: linear-gradient(to right,  #f09458 0%, #e66587 100%);
     box-shadow: 0px 5px 7px gray; 
 }
 
