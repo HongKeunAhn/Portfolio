@@ -30,8 +30,8 @@ jQuery(document).ready(function($){
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle()
             $('body').on('scroll touchmove mousewheel', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
+                e.toggle().preventDefault();
+                e.toggle().stopPropagation();
                 return false;
             })
         })
