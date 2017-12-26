@@ -38,12 +38,17 @@ jQuery(document).ready(function($){
                 $('body').removeClass('mobile-menu-active');
                 $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
                 $('#mobile-body-overlay').fadeOut();
-                }
+                $('#wrapper').on('scroll touchmove mousewheel', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                })
             }
-        });
-    } else if($("#mobile-menu, #mobile-menu-button").length){
-    $("#mobile-menu, #mobile-menu-button").hide();
-    }
+        }
+      });
+  } else if($("#mobile-menu, #mobile-menu-button").length){
+      $("#mobile-menu, #mobile-menu-button").hide();
+  }
     // smoth scroll on page hash links
     $('a[href*="#"]:not([href="#"])').on('click', function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
