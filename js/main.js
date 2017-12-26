@@ -31,8 +31,8 @@ jQuery(document).ready(function($){
             $('#mobile-body-overlay').toggle()
             if ($('body').hasClass('mobile-menu-active')){
                 $('body').on('scroll touchmove mousewheel', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                    e.preventDefault().toggle();
+                    e.stopPropagation().toggle();
                     return false;
                 }); 
             } 
