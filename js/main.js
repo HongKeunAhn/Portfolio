@@ -39,7 +39,7 @@ jQuery(document).ready(function($){
             // $('#wrapper').off('scroll touchmove mousewheel');
         })   
       
-        $(document).on('click', '#mobile-menu-button, #mobile-body-overlay' function(e){
+        $(document).on('click', '#mobile-menu-button, #mobile-body-overlay', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
             if(!container.is(e.target) && container.has(e.target).length === 0){
