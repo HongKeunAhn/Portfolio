@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle()
             if ($('body').hasClass('mobile-menu-active')){
-                $('body').on('scroll touchmove mousewheel', function (e) {
+                $('body').on('scroll touchmove mousewheel', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     return false;
@@ -39,6 +39,7 @@ jQuery(document).ready(function($){
         })   
       
         $(document).on('click', function(e){
+            $('body').off('scroll touchmove mousewheel');
             var container = $("#mobile-menu, #mobile-menu-button");
             
             if(!container.is(e.target) && container.has(e.target).length === 0){
@@ -46,7 +47,6 @@ jQuery(document).ready(function($){
                     $('body').removeClass('mobile-menu-active');
                     $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
                     $('#mobile-body-overlay').fadeOut();
-                    $('body').off('scroll touchmove mousewheel');
                 }
             }
         });
