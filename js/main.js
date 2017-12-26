@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
       $(document).on('click', '#mobile-menu-button', function(e){
         $('body').toggleClass('mobile-menu-active');
         $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
-        $('#mobile-body-overlay').toggle(e);
+        $('#mobile-body-overlay').toggle();
       });
       
       $(document).on('click', function(e){
@@ -38,6 +38,11 @@ jQuery(document).ready(function($){
                 $('body').removeClass('mobile-menu-active');
                 $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
                 $('#mobile-body-overlay').fadeOut();
+                $('body').on('scroll touchmove mousewheel', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                })
             }
         }
       });
