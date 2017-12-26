@@ -36,6 +36,9 @@ jQuery(document).ready(function($){
                     return false;
                 }); 
             } 
+            else {
+                $('body').off('scroll touchmove mousewheel');
+            }
         })   
       
         $(document).on('click', function(e){
