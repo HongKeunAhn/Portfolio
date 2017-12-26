@@ -28,11 +28,7 @@ jQuery(document).ready(function($){
       $(document).on('click', '#mobile-menu-button', function(e){
         $('body').toggleClass('mobile-menu-active');
         $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
-        $('#mobile-body-overlay').toggle('scroll touchmove mousewheel', function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
+        $('#mobile-body-overlay').toggle(e);
       });
       
       $(document).on('click', function(e){
