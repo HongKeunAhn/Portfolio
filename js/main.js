@@ -30,12 +30,15 @@ jQuery(document).ready(function($){
             $('body').toggleClass('mobile-menu-active');
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
-            if ($('body').hasClass('mobile-menu-active')) {
+            if ($('body').hasClass('icon-cancel')) {
                 $('body').on('scroll touchmove mousewheel', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     return false;
                 });
+            }
+            else if ($('body').hasClass('icon-menu-2')){
+                    $('body').off('scroll touchmove mousewheel');
             }
         })
       
@@ -47,9 +50,6 @@ jQuery(document).ready(function($){
                     $('body').removeClass('mobile-menu-active');
                     $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
                     $('#mobile-body-overlay').fadeOut();
-                    if ($('body').removeClass('mobile-menu-active')){
-                        $('body').off('scroll touchmove mousewheel');
-                    }
                 }
             }
         });
