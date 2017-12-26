@@ -36,10 +36,12 @@ jQuery(document).ready(function($){
                     return false;
                 }); 
             } 
+            else {
+                $('body').off('scroll touchmove mousewheel');
+            }
         })   
       
         $(document).on('click', function(e){
-            $('body').off('scroll touchmove mousewheel');
             var container = $("#mobile-menu, #mobile-menu-button");
             
             if(!container.is(e.target) && container.has(e.target).length === 0){
