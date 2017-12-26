@@ -28,7 +28,15 @@ jQuery(document).ready(function($){
       $(document).on('click', '#mobile-menu-button', function(e){
         $('body').toggleClass('mobile-menu-active');
         $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
-        $('#mobile-body-overlay').toggle();
+        $('#mobile-body-overlay').toggle(function(){
+            $('#wrapper').on('scroll touchmove mousewheel', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }, function(){
+                $('#wrapper').off('scroll touchmove mousewheel');
+            })
+        });
       });
       
       $(document).on('click', function(e){
@@ -38,15 +46,10 @@ jQuery(document).ready(function($){
                 $('body').removeClass('mobile-menu-active');
                 $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
                 $('#mobile-body-overlay').fadeOut();
-                $('#wrapper').on('scroll touchmove mousewheel', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                })
+                }
             }
-        }
-      });
-  } else if($("#mobile-menu, #mobile-menu-button").length){
+        });
+    } else if($("#mobile-menu, #mobile-menu-button").length){
       $("#mobile-menu, #mobile-menu-button").hide();
   }
     // smoth scroll on page hash links
