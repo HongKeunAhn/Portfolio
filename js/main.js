@@ -30,16 +30,16 @@ jQuery(document).ready(function($){
             $('body').toggleClass('mobile-menu-active');
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
-            $('#mobile-menu-button i').toggle(function(){
-                $('body').on('scroll touchmove mousewheel', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                })
-            }, 
-            function(){
-                $('body').off('scroll touchmove mousewheel');
-            });
+            // $('').toggle(function(){
+            //     $('body').on('scroll touchmove mousewheel', function (e) {
+            //         e.preventDefault();
+            //         e.stopPropagation();
+            //         return false;
+            //     })
+            // }, 
+            // function(){
+            //     $('body').off('scroll touchmove mousewheel');
+            // });
         })
       
         $(document).on('click', function(e){
