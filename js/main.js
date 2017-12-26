@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
       $('body').append('<div id="mobile-body-overlay"></div>');
       $('#mobile-menu a').wrap("<p></p>");
 
-      $(document).on('click', '#mobile-menu-button', function(e){
+      $(document).on('click', '#mobile-menu-button, #mobile-body-overlay', function(e){
         $('body').toggleClass('mobile-menu-active');
         $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
         $('#mobile-body-overlay').toggle();
