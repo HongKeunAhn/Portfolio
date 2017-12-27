@@ -31,10 +31,14 @@ jQuery(document).ready(function($){
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
             if (('body').hasClass('mobile-menu-active')){
-                $("body").bind('touchmove', function (e) { e.preventDefault() });
+                $('body').on('scroll touchmove mousewheel', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                })
             }
             else{
-                $("body").unbind('touchmove');
+                $('body').off('scroll touchmove mousewheel');
             }
             
             
@@ -48,7 +52,7 @@ jQuery(document).ready(function($){
             // function(){
             //     $('body').off('scroll touchmove mousewheel');
             // });
-        })
+        });
       
         $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
