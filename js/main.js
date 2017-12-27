@@ -30,31 +30,21 @@ jQuery(document).ready(function($){
             $('body').toggleClass('mobile-menu-active');
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
-            if (('body.mobile-menu-active').length){
+            console.log($('.icon-menu-2').length);
+            console.log($('.icon-cancel').length);
+            if ($('.icon-cancel').length) {
                 $('body').on('scroll touchmove mousewheel', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     return false;
                 })
             }
-            else{
+            else if ($('.icon-menu-2').length) {
                 $('body').off('scroll touchmove mousewheel');
             }
-            
-            
-            // $('').toggle(function(){
-            //     $('body').on('scroll touchmove mousewheel', function (e) {
-            //         e.preventDefault();
-            //         e.stopPropagation();
-            //         return false;
-            //     })
-            // }, 
-            // function(){
-            //     $('body').off('scroll touchmove mousewheel');
-            // });
-        });
-      
-        $(document).on('click', function(e){
+        });        
+
+        $(document).click(function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
             if(!container.is(e.target) && container.has(e.target).length === 0){
