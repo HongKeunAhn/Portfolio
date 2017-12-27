@@ -30,6 +30,14 @@ jQuery(document).ready(function($){
             $('body').toggleClass('mobile-menu-active');
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
+            if (('body').hasClass('mobile-menu-active')){
+                $("body").bind('touchmove', function (e) { e.preventDefault() });
+            }
+            else{
+                $("body").unbind('touchmove');
+            }
+            
+            
             // $('').toggle(function(){
             //     $('body').on('scroll touchmove mousewheel', function (e) {
             //         e.preventDefault();
