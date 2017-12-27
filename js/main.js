@@ -30,8 +30,7 @@ jQuery(document).ready(function($){
             $('body').toggleClass('mobile-menu-active');
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
-            console.log($('.icon-menu-2').length);
-            console.log($('.icon-cancel').length);
+            // Mobile device scroll -> "disable" 
             if ($('.icon-cancel').length) {
                 $('body').on('scroll touchmove mousewheel', function (e) {
                     e.preventDefault();
