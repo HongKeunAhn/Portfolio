@@ -43,9 +43,7 @@ jQuery(document).ready(function($){
             }
         });        
 
-        $(document).on('click', '#mobile-menu', function(e){
-            return false;
-        }).on('click', '#mobile-body-overlay', function(e){
+        $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
             if(!container.is(e.target) && container.has(e.target).length === 0){
