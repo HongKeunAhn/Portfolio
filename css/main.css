@@ -565,6 +565,7 @@ footer .copyright-text {
     background: -webkit-linear-gradient(0deg, #e66587 0%, #f09458 100%);
     background: -ms-linear-gradient(0deg, #e66587 0%, #f09458 100%); */
     background: linear-gradient(0deg, #e66587 0%, #f09458 100%);
+    border-radius: 3px;
     width: 100%;
     height: 100%;
     opacity: 0;
