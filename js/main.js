@@ -15,20 +15,7 @@ jQuery(document).ready(function($){
         $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
         return false;
     });
-    $(document).on('mousemove scroll touchmove mousewheel', function () {
-        console.log($('.icon-cancel').length);
-        console.log($('.icon-menu-2').length);
-        if ($('.icon-cancel').length) {
-            $('#wrapper').on('scroll touchmove mousewheel', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            })
-        }
-        else if ($('.icon-menu-2').length) {
-            $('#wrapper').off('scroll touchmove mousewheel');
-        }
-    })        
+       
 //   mobile navigation
 
     if($('#menu').length){
@@ -50,7 +37,21 @@ jQuery(document).ready(function($){
             //     $('#wrapper').off('scroll touchmove mousewheel');
             // });
         });
-        
+        $(document).on('click', function () {
+            console.log($('.icon-cancel').length);
+            console.log($('.icon-menu-2').length);
+            if ($('.icon-cancel').length) {
+                $('#wrapper').on('scroll touchmove mousewheel', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                })
+            }
+            else if ($('.icon-menu-2').length) {
+                $('#wrapper').off('scroll touchmove mousewheel');
+            }
+        })        
+
         $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
