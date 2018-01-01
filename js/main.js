@@ -31,20 +31,6 @@ jQuery(document).ready(function($){
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
             // Mobile device scroll -> "disable" 
-            $(document).on('click', function () {
-                console.log($('.icon-cancel').length);
-                console.log($('.icon-menu-2').length);
-                if ($('.icon-cancel').length) {
-                    $('#wrapper').on('scroll touchmove mousewheel', function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        return false;
-                    })
-                }
-                else if ($('.icon-menu-2').length || !$('#moblie-menu').css({"display": "none"})) {
-                    $('#wrapper').off('scroll touchmove mousewheel');
-                }
-            });  
             // $('#mobile-menu>p').on('click', function(){
             //     $('#wrapper').off('scroll touchmove mousewheel');
             // });    
@@ -54,7 +40,20 @@ jQuery(document).ready(function($){
             //     $('#wrapper').off('scroll touchmove mousewheel');
             // });
         }); 
-
+        $(document).on('touchstart', function () {
+            console.log($('.icon-cancel').length && $('#mobile-body-overlay').css("display") === "block");
+            console.log($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none");
+            if ($('.icon-cancel').length && $('#mobile-body-overlay').css("display") == "block") {
+                $('#wrapper').on('scroll touchmove mousewheel', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                })
+            }
+            else if ($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none") {
+                $('#wrapper').off('scroll touchmove mousewheel');
+            }
+        });  
         $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
