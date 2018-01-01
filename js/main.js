@@ -30,30 +30,21 @@ jQuery(document).ready(function($){
             $('body').toggleClass('mobile-menu-active');
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
-            // Mobile device scroll -> "disable" 
-            // $('#mobile-menu>p').on('click', function(){
-            //     $('#wrapper').off('scroll touchmove mousewheel');
-            // });    
-                   
-            
-            // $('#mobile-menu > p').click(function(e){
-            //     $('#wrapper').off('scroll touchmove mousewheel');
-            // });
         }); 
-        $(document).on('touchstart', function () {
-            console.log($('.icon-cancel').length && $('#mobile-body-overlay').css("display") === "block");
-            console.log($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none");
-            if ($('.icon-cancel').length && $('#mobile-body-overlay').css("display") == "block") {
-                $('#wrapper').on('scroll touchmove mousewheel', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                })
-            }
-            else if ($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none") {
-                $('#wrapper').off('scroll touchmove mousewheel');
-            }
-        });  
+        // $(document).on('touchstart', function () {
+        //     console.log($('.icon-cancel').length && $('#mobile-body-overlay').css("display") === "block");
+        //     console.log($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none");
+        //     if ($('.icon-cancel').length && $('#mobile-body-overlay').css("display") == "block") {
+        //         $('#wrapper').on('scroll touchmove mousewheel', function (e) {
+        //             e.preventDefault();
+        //             e.stopPropagation();
+        //             return false;
+        //         })
+        //     }
+        //     else if ($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none") {
+        //         $('#wrapper').off('scroll touchmove mousewheel');
+        //     }
+        // });  
         $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
