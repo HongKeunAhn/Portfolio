@@ -12,16 +12,16 @@ jQuery(document).ready(function($){
         }
     });
     $('.back-to-top').click(function(){
-        $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
+        $('html, body').animate({scrollTop : 0}, 1500, 'easeInOutExpo');
         return false;
     });
 
-    $('a:not([href*="#"]').on('click touchend', function (e) {
+    $('a[href*="html"]').on('click touchend', function (e) {
         var el = $(this);
-        var link = el.attr('href');
+        var link = el.attr("href");
         window.location = link;
     });   
-//   mobile navigation
+    //   mobile navigation
 
     if($('#menu').length){
         var $mobile_menu = $('#menu').clone().prop({id:'mobile-menu'});
