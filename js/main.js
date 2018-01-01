@@ -15,7 +15,12 @@ jQuery(document).ready(function($){
         $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
         return false;
     });
-       
+    
+    $("a").on("click touchend", function (e) {
+        var el = $(this);
+        var link = el.attr("href");
+        window.location = link;
+    });   
 //   mobile navigation
 
     if($('#menu').length){
