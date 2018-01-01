@@ -56,11 +56,12 @@ jQuery(document).ready(function($){
                 }
             }
         });
-    } else if($("#mobile-menu, #mobile-menu-button").length){
-                $("#mobile-menu, #mobile-menu-button").hide();
-            }
+    } 
+    else if($("#mobile-menu, #mobile-menu-button").length){
+        $("#mobile-menu, #mobile-menu-button").hide();
+    }
     
-        // smoth scroll on page hash links
+    // Smooth scroll on page hash links
     $('a[href*="#"]:not([href="#"])').on('click', function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -79,49 +80,20 @@ jQuery(document).ready(function($){
                 scrollTop: target.offset().top - top_space
             }, 1000, 'easeInOutExpo');
 
-                if ($(this).parents('.nav-menu').length) {
-                    $('.nav-menu .menu-active').removeClass('menu-active');
-                    $(this).closest('a').addClass('menu-active');
-                }
+            if ($(this).parents('.nav-menu').length) {
+                $('.nav-menu .menu-active').removeClass('menu-active');
+                $(this).closest('a').addClass('menu-active');
+            }
 
-                if ($('body').hasClass('mobile-menu-active')) {
-                    $('body').removeClass('mobile-menu-active');
-                    $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
-                    $('#mobile-body-overlay').fadeOut();
-                }
-                return false;
+            if ($('body').hasClass('mobile-menu-active')) {
+                $('body').removeClass('mobile-menu-active');
+                $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
+                $('#mobile-body-overlay').fadeOut();
+            }
+            return false;
         }
     })
 });
-    // Select all links with hashes
-    // $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) {
-    //         // Remove links that don't actually link to anything
-    //         // On-page links
-    //         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    //             // Figure out element to scroll to
-    //             var target = $(this.hash);
-    //             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    //             // Does a scroll target exist?
-    //             if (target.length) {
-    //                 // Only prevent default if animation is actually gonna happen
-    //                 event.preventDefault();
-    //                 $('html, body').animate({
-    //                     scrollTop: target.offset().top
-    //                 }, 1000, 'easeInOutExpo', function () {
-    //                     // Callback after animation
-    //                     // Must change focus!
-    //                     var $target = $(target);
-    //                     $target.focus();
-    //                     if ($target.is(":focus")) { // Checking if the target was focused
-    //                         return false;
-    //                     } else {
-    //                         $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-    //                         $target.focus(); // Set focus again
-    //                     };
-    //                 });
-    //             }
-    //         }
-    //     });
 
 
 // Google Map
