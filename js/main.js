@@ -15,7 +15,7 @@ jQuery(document).ready(function($){
         $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
         return false;
     });
-    $(document).on('scroll touchmove mousewheel', function () {
+    $(document).on('mousemove scroll touchmove mousewheel', function () {
         console.log($('.icon-cancel').length);
         console.log($('.icon-menu-2').length);
         if ($('.icon-cancel').length) {
