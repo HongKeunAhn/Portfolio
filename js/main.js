@@ -31,18 +31,22 @@ jQuery(document).ready(function($){
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
             // Mobile device scroll -> "disable" 
-            if ($('.icon-cancel').length) {
-                $('body').on('scroll touchmove mousewheel', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                })
-            }
-            else if ($('.icon-menu-2').length) {
-                $('body').off('scroll touchmove mousewheel');
-            }
+            // $('#mobile-menu > p').click(function(e){
+            //     $('#wrapper').off('scroll touchmove mousewheel');
+            // });
         });        
-
+        console.log($('.icon-cancel').length);
+        console.log($('.icon-menu-2').length);
+        if ($('.icon-cancel').length) {
+            $('#wrapper').on('scroll touchmove mousewheel', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            })
+        }
+        else if ($('.icon-menu-2').length) {
+            $('#wrapper').off('scroll touchmove mousewheel');
+        }
         $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
