@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Popup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../lib/fontello/css/fontello.css">
+    <style>
+        h1 { text-align: center;}
+        img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+        .gallery{
+            padding: 20px;
+        }
+        .content{
+            cursor: pointer;
+            margin-top: 0;
+            opacity: 1;
+            margin-bottom: 2rem;
+        }
+
+        /* Popup section */
+        .popup {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.829);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out 0.2s;
+        }
+        .pop {
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out 0s;
+        }
+        .container.pop{
+            filter: blur(10px);
+            z-index: 0;                
+        }
+        .pop>article{
+            min-width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 50% 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+        .popup img{
+            width: 100%;
+            z-index: 5;
+            animation: popup 0.3s linear both;
+        }
+        .close-btn{
+            background: gray;
+            border-radius: 100%;
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: background 0.5s ease;
+            animation: popup 0.3s linear 0.3s both;
+        }
+        .close-btn:hover{
+            background: black;
+        }
+        .icon-cancel::before{
+            position: relative;
+            top: -0.05px;
+        }
+        .closepopup{
+            animation: closepopup 1s linear both;
+        }
+        @keyframes popup{
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes closepopup{
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+    <script src="../lib/prefixfree/prefixfree.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>'Click' the image!</h1>
+        <div class="gallery row d-flex align-items-center">
+            <div class="content col-sm-4">
+                <img src="https://images.unsplash.com/photo-1500993855538-c6a99f437aa7?auto=format&fit=crop&w=750&q=80" alt="">
+            </div>
+            <div class="content col-sm-4">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=750&q=80" alt="">
+            </div>
+            <div class="content col-sm-4">
+                <img src="https://images.unsplash.com/reserve/rVvIisyfQwOhZv35PPhh_unsplash.jpg?auto=format&fit=crop&w=750&q=80" alt="">
+            </div>
+        </div>
+        
+        <div class="gallery row d-flex align-items-end">
+            <div class="content col-sm-4">
+                <img src="https://images.unsplash.com/photo-1465220183275-1faa863377e3?auto=format&fit=crop&w=667&q=80" class=""
+                    alt="">
+            </div>
+            <div class="content col-sm-4">
+                <img src="https://images.unsplash.com/photo-1478480154178-88540b2be3b0?auto=format&fit=crop&w=882&q=80" class=""
+                    alt="">
+            </div>
+            <div class="content col-sm-4">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=750&q=80" class=""
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $('.content').on('click', function(){
+                open($(this));
+            });
+
+            $(document).on('click', '.popup img', function(){
+                return false;
+            }).on('click', '.popup', function(){
+                close();
+            });
+
+            function open($content){
+                $('.container').addClass('pop');
+                var $gallery = $content.clone().prop({class:'popup'});
+                $('body').append($gallery);
+                $gallery.append('<div class="close-btn"><i class="icon-cancel"></i></div>');
+                $gallery.children().wrapAll("<article></article>");
+                
+                setTimeout(function(){
+                    $('.popup').addClass('pop');
+                }, 100);
+            }
+            function close(){
+                var $closer = $('article').find('img, .close-btn');
+                $closer.addClass('closepopup');
+                setTimeout(function(){
+                    $('.container').removeClass('pop');
+                    $('.popup').remove()
+                }, 200);
+            }
+        })
+    </script>    
+</body>
+</html>

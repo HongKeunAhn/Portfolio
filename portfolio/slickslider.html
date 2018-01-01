@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slickslider</title>
+    <link rel="stylesheet" type="text/css" href="../lib/slick/slick.css" /> 
+    <!-- Add the new slick-theme.css if you want the default styling -->
+    <link rel="stylesheet" type="text/css" href="../lib/slick/slick-theme.css" />
+    <style>
+        .header{
+            font-size: 2rem;
+            text-align: center;
+            margin: 2rem auto;
+        }
+        .slide {
+            z-index: 0;
+        }    
+        .slide .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin: 0 2rem;
+            border:1px solid olive;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.3);
+            background: white;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .slide .content img{
+            margin: 0 auto;
+            width: 100%;
+            height: 200px;
+        }
+        .slide .content:hover{
+            opacity: 1;
+        }
+        .slick-prev {
+            left: 1rem;
+            z-index: 1000;
+        }
+        .slick-next {
+            right: 1rem;
+            z-index: 1000;
+        }
+        .slick-prev::before, .slick-next::before  {
+            color: rgba(68, 68, 68, 0.8);
+            font-size: 2rem;
+        }
+
+        .content>p{
+           color: gray;
+           padding: 0 1rem;
+        }
+        .cart, .buy-now{
+            font-weight: bold;
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            width: 6rem;
+            padding: 2%;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+        }
+        .cart{
+            left: 3%;
+            border: 0.5px solid olive;
+            color: olive;
+            transition: all 0.3s ease;
+        }
+        .cart:focus:hover{
+            background: olive;
+            color: ivory;
+        }
+        .buy-now{
+            right: 3%;
+            border: 0.5px solid orangered;
+            color: orangered;
+            transition: all 0.3s ease;
+        }
+        .buy-now:focus:hover{
+             background:orangered;
+            color: ivory;
+        }
+    </style>
+    <script src="../lib/prefixfree/prefixfree.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        Slick Slide Image. (jQuery Plugin)
+    </div>
+    <div class="slide" >
+        <div class="content">
+            <img src="images/lego01.jpg" alt="lego">
+            <p>Lorem ipsum dolor, sit amet consectetur</p>
+        </div>
+        <div class="content">
+            <img src="images/lego02.jpg" alt="lego">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego03.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego04.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego05.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego06.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego07.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego08.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego09.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego10.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego11.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego12.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego13.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego14.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content">
+            <img src="images/lego15.jpg" alt="lego">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.1.js" integrity="sha256-VvnF+Zgpd00LL73P2XULYXEn6ROvoFaa/vbfoiFlZZ4="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../lib/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+                $('.slide').slick({
+                    dots: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    autoplay: false,
+                    autoplaySpeed: 2000,
+                    responsive: [ //responsive Web
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                dots: false
+                            }
+                        }
+                    ]
+                });
+
+                $('.content').append('<button type="button" class="cart">CART</div>');
+                $('.content').append('<button type="button" class="buy-now">BUY NOW</div>');
+            });
+    </script>
+</body>
+</html>

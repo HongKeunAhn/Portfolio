@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music Player</title>
+    <style type='text/css'>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        a {text-decoration: none; color: rgb(177, 174, 174);}
+        body {background: palevioletred;}
+        .header{
+            text-align: center;
+            color: white;
+            padding: 1rem 0;
+        }
+        .active{
+            padding: 1rem 0;
+        }
+        .active a {
+            animation: fontColor 10s linear infinite, fontSize 1s linear both;
+        }
+        .static{
+            padding:0.5rem 0;
+        }
+        #playlist{
+            text-align: center;
+            margin: 0 auto;
+            max-width: 600px;           
+            min-width: 300px;
+            background: rgba(48, 41, 43, 0.801);
+            position: relative;
+            animation: playlist 1s ease both;
+            opacity: 0;
+            box-shadow: 2px -2px 2px 2px rgba(0, 0, 0, 0.562);  
+        }
+        #playlist a:hover {
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        @keyframes playlist{
+            0%{
+                bottom: -300px;
+                opacity: 0;
+            }
+            80%{
+                bottom: 100px;
+            }
+            100%{
+                bottom: 0;
+                opacity: 1;
+            }
+        }
+        @keyframes fontSize {
+            0%{
+                font-size: 1rem;
+            }
+            100%{
+                font-size: 1.5rem;
+            }
+        }
+        @keyframes fontColor {
+            0%{color: red;}
+            5%{color: orangered;}
+            10%{color: tomato;}
+            15%{color: pink;}
+            20%{color: goldenrod;}
+            25%{color: orange;}
+            30%{color: yellow;}
+            35%{color: greenyellow;}
+            40%{color: lime;}
+            45%{color: green;}
+            50%{color: aquamarine;}
+            55%{color: lightseagreen;}
+            60%{color: dodgerblue;}
+            65%{color: blue;}
+            70%{color: midnightblue;}
+            75%{color: navy;}
+            80%{color: purple;}
+            85%{color: fuchsia;}
+            90%{color: firebrick;}
+            95%{color: maroon;}
+            100%{color: darkred;}
+        }
+        .static-image,  .close-image, .open-image{
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        .static-image {
+            visibility: hidden;
+        }
+        .close-image{
+            transform-origin: 50% 50%;
+            animation: close-image 0.5s ease both; 
+        }
+        .open-image{
+            animation: open-image 0.5s ease both;
+        }
+        @keyframes close-image {
+            0%{
+                transform: scale(1);
+                bottom: 0;
+            }
+            100%{
+                transform: scale(0);
+                bottom: -300px;
+            }
+        }
+        @keyframes open-image{
+            0%{
+                transform: rotate(180deg);
+                transform: scale(0);
+                top: -300px;
+            }
+            100%{
+                transform: rotate(0deg);
+                transform: scale(1);
+                top: 0;
+            }
+        }
+    </style>
+    <script src="../lib/prefixfree/prefixfree.min.js"></script>
+</head>
+<body>
+    <div class="header">If you Click the list, then play starting music.</div>
+    <audio id="audio">
+        <source type="audio/mp3" src="media/01.mp3">
+    </audio>
+
+    <div>
+        <div class="static-image"><img src="images/music/01.jpg" style="max-width: 300px; border-radius:100%" alt=""></div>
+    </div>
+    
+    <div id="playlist">
+        <div class="static">
+            <a href="media/01.mp3">1. Dear My Dear - Mozell</a>
+        </div>
+        <div class="static">
+            <a href="media/02.mp3">2. KoKuten - Naruto sound track</a>
+        </div>
+        <div class="static">
+            <a href="media/03.mp3">3. Downhill - Olaf</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+            var current;
+            var audio;
+            var playlist;
+            var images;
+
+            function init() {
+                // current = 0;
+                audio = $('audio');
+                playlist = $('#playlist');
+                playlist.find('a').on('click', function (e) {
+
+                    e.preventDefault();
+                    link = $(this);
+                    // console.log(link);
+                    current = link.parent().index();
+                    // console.log(current);
+                    musicPlay(link, audio[0]);
+                });
+            } init();
+
+            function musicPlay(link, player) {
+                // console.log(player);
+                player.src = link.attr('href'); //audio태그의 src 값을 a태그의 href 속성값과 동일하게.
+                listBar = link.parent();
+                // console.log(listBar); //get div Tag
+                listBar.addClass('active').siblings().removeClass('active');
+                $('.static-image').attr('class','open-image');
+                player.loop = true;
+                player.load();
+                player.play();
+            }
+        });
+
+    </script>
+</body>
+</html>
+

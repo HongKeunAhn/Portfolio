@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scolling conter</title>
+    <style>
+        body {
+          background: tomato;
+          color: white;
+        }
+        .title-content {
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            letter-spacing: 1px;
+            font-size: 42px;
+            border-bottom: 2px solid yellowgreen;
+        }
+        .main-content {
+            padding: 80px 20px;
+            height: 100vh;
+            position: relative;
+            opacity: 0;
+        }
+        .view{
+            animation: view 0.5s linear 0.3s both;
+        }
+        @keyframes view {
+            0% {
+                opacity: 0;
+                bottom: -7rem;
+            }
+            100% {
+                opacity: 1;
+                bottom: 0;
+            }
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        .list-item {
+            text-align: center;
+            background: yellowgreen;
+            border-radius: 15px;
+            width: 220px;
+            padding: 15px 0px;
+            margin: 5px;
+        }
+        .list-item-label {
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .list-item-description {
+            font-size: 48px;
+            line-height: 1;
+        }
+    </style>
+    <script src="../lib/prefixfree/prefixfree.min.js"></script>
+</head>
+<body>
+    <div class="title-content">
+        <h1>Scolling counter</h1>
+        <p>If scolling down, the number is counted</p>
+    </div>
+    
+    <div class="main-content">
+        <ul>
+            <li>
+                <div class="list-item">
+                    <div class="list-item-label">Visited</div>
+                    <div class="list-item-description">
+                        <p>1504092</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item">
+                    <div class="list-item-label">Project</div>
+                    <div class="list-item-description">
+                        <p>1006</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item">
+                    <div class="list-item-label">Woker</div>
+                    <div class="list-item-description">
+                        <p>2241</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item">
+                    <div class="list-item-label">Service</div>
+                    <div class="list-item-description">
+                        <p>86</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            // reset the number
+            function initCounter() {
+                $(".list-item-description p").each(function () {
+                    $(this).data('number', $(this).html());
+                    $(this).html('0');
+                });
+            }initCounter();
+
+            // counter speed
+            function counter() {
+                $(".list-item-description p").each(function () {
+
+                    var $this = $(this);
+                    var data = $(this).data('number');
+                    $({ value: 0 }).animate({ value: data }, {
+                        duration: 1500,
+                        easing: "swing",
+
+                        step: function () {
+                            $this.html(Math.round(this.value));
+                        }
+                    });
+                });
+            }
+            
+            // scolling event
+            var featTop = $('.main-content').offset().top;
+            var triggered = false;
+
+            $(window).scroll(function () {
+                if (triggered == false) {
+                    if ($(window).scrollTop() + $(window).height() / 2 > featTop) {
+                        triggered = true;
+                        counter($('.main-content'));
+                        $('.main-content').addClass('view');
+                    }
+                }
+            });
+        }); 
+    </script>    
+</body>
+</html>
