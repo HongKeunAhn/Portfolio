@@ -15,12 +15,13 @@ jQuery(document).ready(function($){
         $('html, body').animate({scrollTop : 0}, 1500, 'easeInOutExpo');
         return false;
     });
-
+    // mobile safari touch (hover event)
     $('a[href*="html"]').on('click touchend', function (e) {
         var el = $(this);
         var link = el.attr("href");
         window.location = link;
     });   
+
     //   mobile navigation
 
     if($('#menu').length){
@@ -66,7 +67,7 @@ jQuery(document).ready(function($){
         $("#mobile-menu, #mobile-menu-button").hide();
     }
     
-    // Smooth scroll on page hash links
+    // Smooth scroll on page hash links (easing.js)
     $('a[href*="#"]:not([href="#"])').on('click', function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
