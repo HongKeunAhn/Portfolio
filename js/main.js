@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
         return false;
     });
     // mobile safari touch (hover event)
-    $('a[href*="html"]').on('click touchend', function (e) {
+    $('a[href*="html"]').on('touchend', function (e) {
         var el = $(this);
         var link = el.attr("href");
         window.location = link;
