@@ -73,6 +73,9 @@ var el0 = items[0].querySelector('.icon-location'),
     el0.addEventListener('click', function (e) {
         timeline.add(a0, a1, a2, a3).replay();
     });
+    el0.addEventListener('touchend', function (e) {
+        timeline.add(a0, a1, a2, a3).replay();
+    });
 
 // icon 2
 var el1 = items[1].querySelector('.icon-paper-plane'),
@@ -495,3 +498,6 @@ var el7 = items[7].querySelector('.icon-search'),
     el7.addEventListener('click', function (e) {
         timeline7.add(h0, h1, h2).replay();
     });
+    el7.addEventListener('touchend', function (e) {
+    timeline7.add(h0, h1, h2).replay();
+});
