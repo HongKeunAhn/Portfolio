@@ -29,7 +29,6 @@ a { text-decoration: none; color: black;}
 }
 #header {
     flex-basis: 15rem;
-    /* flex-shrink: 0; */
 }
 #header h1 {
     font-size: 2rem;
@@ -301,9 +300,6 @@ body.mobile-menu-active #mobile-menu-button {
     display: inline-block;
     font-weight: 500;
     position: relative;
-    /* -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s; */
     transition: all 0.3s ease 0s;
     cursor: pointer;
 }
@@ -323,7 +319,7 @@ body.mobile-menu-active #mobile-menu-button {
 .start-btn:hover .icon-right-open-big, .page-btn:hover .icon-right-open-big{
     left: 20px;
 }
-.start-btn:after {
+.start-btn::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -332,16 +328,10 @@ body.mobile-menu-active #mobile-menu-button {
     left: 0;
     border-radius: 20px;
     opacity: 0;
-    /* -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s; */
     transition: all 0.3s ease 0s;
     z-index: 1;
 }
-.start-btn:after, .widget .icon:after {
-    /* background-image: -moz-linear-gradient(0deg, #e66587 0%, #f09458 100%);
-    background-image: -webkit-linear-gradient(0deg, #e66587 0%, #f09458 100%);
-    background-image: -ms-linear-gradient(0deg, #e66587 0%, #f09458 100%); */
+.start-btn::after, .widget .icon::after {
     background: linear-gradient(0deg, #e66587 0%, #f09458 100%);
 }
 .start-btn:hover {
@@ -349,14 +339,14 @@ body.mobile-menu-active #mobile-menu-button {
     border: 1px solid transparent;
     text-decoration: none;
 }
-.start-btn:hover:after {
+.start-btn:hover::after {
     opacity: 1;
 }
 .start-btn.hover {
     color: #fff;
     border: 1px solid transparent;
 }
-.start-btn.hover:after {
+.start-btn.hover::after {
     opacity: 1;
 }
 .portfolio-list {
@@ -381,9 +371,6 @@ body.mobile-menu-active #mobile-menu-button {
     background: rgba(255, 255, 255, 0.8);
     opacity: 0;
     visibility: hidden;
-    /* -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s; */
     transition: all 0.3s ease 0s;
 }
 .portfolio-list .desc {
@@ -440,16 +427,13 @@ body.mobile-menu-active #mobile-menu-button {
     color: #fff;
 }
 
-.widget .icon:after {
+.widget .icon::after {
     position: absolute;
     z-index: 1;
     content: "";
     width: 100%;
     height: 100%;
     opacity: 0;
-    /* -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s; */
     transition: all 0.3s ease 0s;
     border-radius: 3px;
 }
@@ -558,13 +542,10 @@ footer .copyright-text {
     color: #fff;
 }
 
-.footer-social a:after {
+.footer-social a::after {
     position: absolute;
     z-index: 1;
     content: "";
-    /* background: -moz-linear-gradient(0deg, #e66587 0%, #f09458 100%);
-    background: -webkit-linear-gradient(0deg, #e66587 0%, #f09458 100%);
-    background: -ms-linear-gradient(0deg, #e66587 0%, #f09458 100%); */
     background: linear-gradient(0deg, #e66587 0%, #f09458 100%);
     border-radius: 3px;
     width: 100%;
@@ -572,9 +553,6 @@ footer .copyright-text {
     opacity: 0;
     top: 0;
     left: 0;
-    /* -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s; */
     transition: all 0.3s ease 0s;
     z-index: 1;
 }
@@ -583,6 +561,6 @@ footer .copyright-text {
     border: 1px solid transparent;
 }
 
-.footer-social a:hover:after {
+.footer-social a:hover::after {
     opacity: 1;
 }
