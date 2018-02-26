@@ -93,9 +93,9 @@ a { text-decoration: none; color: black;}
 #mobile-menu-button {
     position: fixed;
     right: 0;
-    top: -3px;
+    top: 0;
     z-index: 1000;
-    margin: 20px 20px 0 0;
+    margin: 15px 20px 0 0 ;
     border: 0;
     background: none;
     font-size: 24px;
