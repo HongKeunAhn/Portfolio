@@ -37,6 +37,9 @@ jQuery(document).ready(function($){
             $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
             $('#mobile-body-overlay').toggle();
         }); 
+
+        // mobile touchscroll defend for IOS&Chrome
+        
         // $(document).on('touchstart', function () {
         //     console.log($('.icon-cancel').length && $('#mobile-body-overlay').css("display") === "block");
         //     console.log($('.icon-menu-2').length && $('#mobile-body-overlay').css("display") == "none");
@@ -51,6 +54,8 @@ jQuery(document).ready(function($){
         //         $('#wrapper').off('scroll touchmove mousewheel');
         //     }
         // });  
+
+
         $(document).on('click', function(e){
             var container = $("#mobile-menu, #mobile-menu-button");
             
@@ -99,7 +104,13 @@ jQuery(document).ready(function($){
             return false;
         }
     })
+
+    // Footer
+
+    var $copyyear = new Date();
+   $('footer').find('span').text($copyyear.getFullYear());  
 });
+
 
 
 // Google Map
