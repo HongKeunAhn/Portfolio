@@ -131,7 +131,7 @@ a { text-decoration: none !important; color: black;}
 #mobile-menu a{
     display: inline-block;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 200;
     padding-bottom: 1rem;
     margin-left: 2rem;
     color: white;
@@ -313,11 +313,11 @@ body.mobile-menu-active #mobile-menu-button {
     z-index: 2;
     font-weight: bold;
 }
-.icon-right-open-big{
+.keuni-right-open-big{
     left: 0px;
     transition: all 0.5s ease-out 0s;
 }
-.start-btn:hover .icon-right-open-big, .page-btn:hover .icon-right-open-big{
+.start-btn:hover .keuni-right-open-big, .page-btn:hover .keuni-right-open-big{
     left: 20px;
 }
 .start-btn::after {
