@@ -27,13 +27,13 @@ jQuery(document).ready(function($){
         var $mobile_menu = $('#menu').clone().prop({id:'mobile-menu'});
             $mobile_menu.find('>a').attr({'class': '', 'id': ''});
             $('body').append($mobile_menu);
-            $('body').prepend('<button type="button" id="mobile-menu-button"><i class="icon-menu-2"></i></button>');
+        $('body').prepend('<button type="button" id="mobile-menu-button"><i class="keuni-menu-2"></i></button>');
             $('body').append('<div id="mobile-body-overlay"></div>');
             $('#mobile-menu a').wrap("<p></p>");
 
         $(document).on('click', '#mobile-menu-button', function(e){
             $('body').toggleClass('mobile-menu-active');
-            $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
+            $('#mobile-menu-button i').toggleClass('keuni-cancel keuni-menu-2');
             $('#mobile-body-overlay').toggle();
         }); 
 
@@ -61,7 +61,7 @@ jQuery(document).ready(function($){
             if(!container.is(e.target) && container.has(e.target).length === 0){
                 if($('body').hasClass('mobile-menu-active')){
                     $('body').removeClass('mobile-menu-active');
-                    $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
+                    $('#mobile-menu-button i').toggleClass('keuni-cancel keuni-menu-2');
                     $('#mobile-body-overlay').fadeOut();
                 }
             }
@@ -97,7 +97,7 @@ jQuery(document).ready(function($){
 
             if ($('body').hasClass('mobile-menu-active')) {
                 $('body').removeClass('mobile-menu-active');
-                $('#mobile-menu-button i').toggleClass('icon-cancel icon-menu-2');
+                $('#mobile-menu-button i').toggleClass('keuni-cancel keuni-menu-2');
                 $('#mobile-body-overlay').fadeOut();
             }
             return false;
